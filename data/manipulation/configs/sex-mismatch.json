@@ -1,0 +1,13 @@
+{
+  "comment": "Inject sex-role violations by assigning incorrect gender parents (female sire, male dam) to validate pedigree constraints",
+  "mutations": [
+    {
+      "type": "set_sire_female",
+      "target": ["20", "22"]
+    },
+    {
+      "type": "set_dam_male",
+      "target": ["30", "32"]
+    }
+  ]
+}

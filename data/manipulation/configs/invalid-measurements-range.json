@@ -1,0 +1,29 @@
+{
+  "comment": "Generate invalid measurement values (exceeding realistic biological limits) across selected dataset ranges",
+  "mutations": [
+    {
+      "type": "invalid_measurement",
+      "range": {
+        "min": 10,
+        "max": 40,
+        "count": 5
+      },
+      "params": {
+        "field": "height_cm",
+        "value": "250.0"
+      }
+    },
+    {
+      "type": "invalid_measurement",
+      "range": {
+        "min": 60,
+        "max": 90,
+        "count": 3
+      },
+      "params": {
+        "field": "weight_kg",
+        "value": "250.5"
+      }
+    }
+  ]
+}

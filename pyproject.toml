@@ -1,0 +1,43 @@
+[project]
+name = "pedigree-qa-assignment"
+version = "0.1.0"
+description = ""
+authors = [
+    {name = "dmoke",email = "dmytromykhaliukk@gmail.com"}
+]
+requires-python = "^3.14"
+dependencies = [
+    "fastapi (>=0.136.1,<0.137.0)",
+    "uvicorn (>=0.46.0,<0.47.0)",
+    "pandas (>=3.0.2,<4.0.0)",
+    "jinja2 (>=3.1.6,<4.0.0)",
+    "python-dotenv (>=1.0.0,<2.0.0)"
+]
+
+
+[build-system]
+requires = ["poetry-core>=2.0.0,<3.0.0"]
+build-backend = "poetry.core.masonry.api"
+
+[dependency-groups]
+dev = [
+    "pytest (>=9.0.3,<10.0.0)",
+    "pytest-html (>=4.0.0,<5.0.0)",
+    "httpx (>=0.27.0,<1.0.0)",
+    "pytest-timeout (>=2.4.0,<3.0.0)"
+]
+
+[tool.pytest.ini_options]
+addopts = "--tb=short -v --html=reports/pytest-report.html --self-contained-html --capture=no --timeout=20"
+filterwarnings = [
+    "ignore::UserWarning:pytest_html.selfcontained_report"
+]
+log_level = "INFO"
+pythonpath = ["src"]
+markers = [
+    "full_validation: run comprehensive validation against all validators",
+    "testcase(id): test case id for reporting"
+]
+
+[tool.poetry]
+package-mode = false

@@ -1,0 +1,63 @@
+{
+  "comment": "Full dataset corruption scenario injecting all mutation types across dataset",
+  "mutations": [
+    {
+      "type": "invalid_name",
+      "range": { "min": 0, "max": 20, "count": 6 }
+    },
+    {
+      "type": "invalid_measurement",
+      "params": { "field": "height_cm", "strategy": "negative" },
+      "range": { "min": 0, "max": 20, "count": 4 }
+    },
+    {
+      "type": "invalid_measurement",
+      "params": { "field": "weight_kg", "strategy": "negative" },
+      "range": { "min": 10, "max": 30, "count": 4 }
+    },
+    {
+      "type": "invalid_sex",
+      "params": { "value": "X" },
+      "range": { "min": 0, "max": 20, "count": 3 }
+    },
+    {
+      "type": "duplicate_id",
+      "params": {
+        "pairs": [
+          { "target": "11", "source_idx": "1" },
+          { "target": "16", "source_idx": "2" }
+        ]
+      }
+    },
+    {
+      "type": "break_parent_ref",
+      "params": { "parent_type": "sire" },
+      "range": { "min": 0, "max": 15, "count": 3 }
+    },
+    {
+      "type": "break_parent_ref",
+      "params": { "parent_type": "dam" },
+      "range": { "min": 0, "max": 15, "count": 3 }
+    },
+    {
+      "type": "create_cycle",
+      "range": { "min": 0, "max": 15, "count": 2 }
+    },
+    {
+      "type": "self_parenting",
+      "range": { "min": 20, "max": 40, "count": 2 }
+    },
+    {
+      "type": "set_sire_female",
+      "range": { "min": 0, "max": 25, "count": 2 }
+    },
+    {
+      "type": "set_dam_male",
+      "range": { "min": 0, "max": 25, "count": 2 }
+    },
+    {
+      "type": "breed_mismatch",
+      "range": { "min": 0, "max": 30, "count": 5 }
+    }
+  ]
+}

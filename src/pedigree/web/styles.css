@@ -1,0 +1,440 @@
+* {
+  box-sizing: border-box;
+}
+
+html, body {
+  height: 100%;
+  margin: 0;
+  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Arial, sans-serif;
+}
+
+body {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  padding: 10px;
+  background: #f5f5f5;
+}
+
+/* SEARCH BAR */
+#search-container {
+  flex: 0 0 auto;
+  display: flex;
+  gap: 8px;
+  align-items: center;
+}
+
+#search-input {
+  flex: 1;
+  padding: 12px 16px;
+  font-size: 14px;
+  border: 2px solid #ddd;
+  border-radius: 6px;
+  background: white;
+  transition: all 0.2s ease;
+  box-shadow: 0 1px 3px rgba(0,0,0,0.1);
+}
+
+#search-input:focus {
+  outline: none;
+  border-color: #2196F3;
+  box-shadow: 0 2px 8px rgba(33, 150, 243, 0.3);
+}
+
+#search-input::placeholder {
+  color: #999;
+}
+
+#search-clear {
+  flex: 0 0 auto;
+  width: 40px;
+  height: 40px;
+  padding: 0;
+  border: 2px solid #ddd;
+  border-radius: 6px;
+  background: white;
+  font-size: 18px;
+  font-weight: bold;
+  color: #999;
+  cursor: pointer;
+  transition: all 0.2s ease;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+#search-clear:hover {
+  border-color: #F44336;
+  color: #F44336;
+  background: #ffebee;
+}
+
+#search-clear:active {
+  transform: scale(0.95);
+}
+
+/* TOP: DOG LIST CARDS */
+#dogs-list-container {
+  flex: 0 1 200px;
+  border: 1px solid #ddd;
+  border-radius: 6px;
+  background: white;
+  overflow-y: auto;
+  box-shadow: 0 1px 3px rgba(0,0,0,0.1);
+  resize: vertical;
+  overflow: auto;
+}
+
+#dogs-list {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(95px, 1fr));
+  gap: 8px;
+  padding: 8px;
+}
+
+.dog-list-card {
+  border: 2px solid #ddd;
+  border-radius: 6px;
+  padding: 8px;
+  cursor: pointer;
+  background: white;
+  text-align: center;
+  transition: all 0.2s ease;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  gap: 4px;
+  min-height: 100px;
+  user-select: none;
+}
+
+.dog-list-card:hover {
+  border-color: #4CAF50;
+  box-shadow: 0 2px 8px rgba(76, 175, 80, 0.3);
+  transform: translateY(-2px);
+}
+
+.dog-list-card.active {
+  border-color: #2196F3;
+  background: #e3f2fd;
+  font-weight: bold;
+}
+
+.dog-list-card__id {
+  font-size: 9px;
+  color: #999;
+  font-weight: 600;
+}
+
+.dog-list-card__icon {
+  width: 32px;
+  height: 32px;
+}
+
+.dog-list-card__name {
+  font-weight: bold;
+  font-size: 11px;
+  text-align: center;
+  line-height: 1.2;
+  word-break: break-word;
+}
+
+/* DIVIDER - DRAGGABLE RESIZE */
+#resize-handle {
+  height: 8px;
+  background: linear-gradient(to bottom, #ddd, #ccc, #ddd);
+  cursor: row-resize;
+  border-radius: 3px;
+  margin: 1px 0;
+  transition: background 0.2s;
+}
+
+#resize-handle:hover {
+  background: linear-gradient(to bottom, #4CAF50, #45a049, #4CAF50);
+}
+
+/* BOTTOM: 2-COLUMN LAYOUT */
+#bottom {
+  flex: 1 1 auto;
+  display: grid;
+  grid-template-columns: 300px 1fr;
+  gap: 10px;
+  min-height: 0;
+}
+
+/* LEFT PANEL: DOG INFO */
+#left-panel {
+  border: 1px solid #ddd;
+  border-radius: 6px;
+  background: white;
+  padding: 14px;
+  overflow-y: auto;
+  box-shadow: 0 1px 3px rgba(0,0,0,0.1);
+}
+
+.dog-card {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+
+.dog-card__header {
+  text-align: center;
+  border-bottom: 2px solid #f0f0f0;
+  padding-bottom: 12px;
+}
+
+.dog-card__icon {
+  width: 56px;
+  height: 56px;
+  margin: 0 auto 8px;
+  opacity: 0.8;
+}
+
+.dog-card__id {
+  font-size: 12px;
+  color: #999;
+  margin-bottom: 4px;
+  font-weight: 600;
+}
+
+.dog-card__name {
+  font-size: 22px;
+  font-weight: bold;
+  margin: 0;
+  color: #333;
+}
+
+.dog-card__field {
+  display: flex;
+  justify-content: space-between;
+  padding: 10px 0;
+  border-bottom: 1px solid #f0f0f0;
+  font-size: 14px;
+}
+
+/* PEEK PREVIEW CARD - HOVER ONLY */
+.dog-card.peek {
+  background: #fff3e0;
+  border-left: 4px solid #FF9800;
+  opacity: 0.85;
+}
+
+.dog-card.peek .dog-card__header {
+  border-bottom: 2px solid #FF9800;
+  background: #ffe0b2;
+}
+
+.dog-card.peek .dog-card__name {
+  color: #E65100;
+  font-size: 20px;
+}
+
+.dog-card.peek .dog-card__label {
+  color: #E65100;
+  font-weight: bold;
+}
+
+.peek-indicator {
+  display: inline-block;
+  font-size: 11px;
+  background: #FF9800;
+  color: white;
+  padding: 2px 8px;
+  border-radius: 3px;
+  margin-left: 8px;
+  font-weight: bold;
+}
+
+.dog-card__label {
+  font-weight: 600;
+  color: #555;
+}
+
+.dog-card__value {
+  color: #777;
+  text-align: right;
+  font-family: monospace;
+  font-weight: 500;
+}
+
+.dog-card__null {
+  color: #ccc;
+  font-style: italic;
+}
+
+.parent-id, .child-id {
+  color: #2196F3;
+  cursor: pointer;
+  text-decoration: none;
+  font-weight: 500;
+  transition: all 0.2s ease;
+  padding: 2px 6px;
+  border-radius: 3px;
+}
+
+.parent-id:hover, .child-id:hover {
+  background: #e3f2fd;
+  color: #1976D2;
+  text-decoration: underline;
+}
+
+.child-id {
+  color: #4CAF50;
+}
+
+.child-id:hover {
+  background: #e8f5e9;
+  color: #388E3C;
+}
+
+/* RIGHT PANEL: FAMILY TREE WITH CONNECTIONS */
+#right-panel {
+  border: 1px solid #ddd;
+  border-radius: 6px;
+  background: white;
+  overflow: auto;
+  box-shadow: 0 1px 3px rgba(0,0,0,0.1);
+  position: relative;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+#tree-container {
+  padding: 30px 20px;
+  display: inline-block;
+  position: relative;
+}
+
+/* SVG for connection lines */
+#tree-svg {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  pointer-events: none;
+  z-index: 0;
+}
+
+.tree {
+  display: flex;
+  flex-direction: column-reverse;
+  align-items: center;
+  position: relative;
+  z-index: 1;
+  gap: 50px;
+}
+
+.tree-level {
+  display: flex;
+  justify-content: center;
+  gap: 50px;
+  flex-wrap: wrap;
+  position: relative;
+  width: 100%;
+}
+
+.tree-node {
+  padding: 12px 14px;
+  border: 2px solid #4CAF50;
+  border-radius: 8px;
+  background: white;
+  min-width: 130px;
+  min-height: 70px;
+  text-align: center;
+  box-shadow: 0 2px 6px rgba(0,0,0,0.12);
+  position: relative;
+  z-index: 2;
+  transition: all 0.2s ease;
+  cursor: pointer;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+.tree-node:hover {
+  transform: scale(1.05);
+  box-shadow: 0 4px 12px rgba(0,0,0,0.15);
+  border-color: #2196F3;
+}
+
+/* Parent lines - visible by generation color */
+svg line.parent-line {
+  transition: all 0.2s ease;
+  opacity: 0.8;
+}
+
+/* Fade out other lines when highlighting */
+svg line.parent-line.faded {
+  opacity: 0.15;
+  stroke-width: 1.5;
+}
+
+/* Highlight specific lines on hover */
+svg line.parent-line.highlight {
+  stroke-width: 4;
+  opacity: 1;
+  filter: drop-shadow(0 0 2px rgba(0,0,0,0.5));
+}
+
+.tree-node.root {
+  border: 3px solid #2196F3;
+  background: #e3f2fd;
+  font-weight: bold;
+  padding: 14px 16px;
+  min-width: 150px;
+  min-height: 90px;
+  font-size: 15px;
+}
+
+.tree-node__id {
+  font-size: 11px;
+  color: #999;
+  margin-bottom: 4px;
+  font-weight: 600;
+}
+
+.tree-node__name {
+  font-weight: bold;
+  font-size: 15px;
+  margin-bottom: 3px;
+  color: #333;
+}
+
+.tree-node__breed {
+  font-size: 12px;
+  color: #777;
+}
+
+.no-data {
+  padding: 40px 20px;
+  text-align: center;
+  color: #999;
+  font-size: 15px;
+  position: relative;
+  z-index: 1;
+}
+
+/* SCROLLBAR STYLING */
+::-webkit-scrollbar {
+  width: 8px;
+  height: 8px;
+}
+
+::-webkit-scrollbar-track {
+  background: #f1f1f1;
+  border-radius: 4px;
+}
+
+::-webkit-scrollbar-thumb {
+  background: #aaa;
+  border-radius: 4px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: #777;
+}

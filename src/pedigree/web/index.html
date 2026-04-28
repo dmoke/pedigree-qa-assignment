@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <title>Dog Tree</title>
+  <link rel="stylesheet" href="styles.css" />
+</head>
+
+<body>
+
+  <!-- SEARCH BAR -->
+  <div id="search-container">
+    <input type="text" id="search-input" placeholder="Search dogs by name or ID..." />
+    <button id="search-clear" title="Clear search">✕</button>
+  </div>
+
+  <!-- TOP LIST -->
+  <div id="dogs-list-container">
+    <div id="dogs-list"></div>
+  </div>
+
+  <!-- RESIZE HANDLE -->
+  <div id="resize-handle"></div>
+
+  <!-- BOTTOM GRID -->
+  <div id="bottom">
+
+    <!-- LEFT PANEL -->
+    <div id="left-panel">
+      <div id="dog-card"></div>
+    </div>
+
+    <!-- RIGHT PANEL (TREE) -->
+    <div id="right-panel">
+      <div id="ancestors-wrapper">
+        <div id="ancestors"></div>
+        <svg id="tree-lines"></svg>
+      </div>
+    </div>
+
+  </div>
+
+  <script src="app.js"></script>
+</body>
+</html>

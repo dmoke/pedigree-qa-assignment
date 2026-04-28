@@ -1,0 +1,19 @@
+{
+  "comment": "Inject self-parenting violations where dogs are assigned as their own sire and/or dam, creating biologically invalid and immediate graph loops",
+  "mutations": [
+    {
+      "type": "self_parenting",
+      "target": ["20"],
+      "params": {
+        "mode": "both"
+      }
+    },
+    {
+      "type": "self_parenting",
+      "target": ["25"],
+      "params": {
+        "mode": "sire"
+      }
+    }
+  ]
+}

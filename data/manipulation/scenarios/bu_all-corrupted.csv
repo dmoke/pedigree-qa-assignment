@@ -1,0 +1,21 @@
+ID,Name,Breed,Sex,Height_cm,Weight_kg,Sire_ID,Dam_ID
+1,Max123,Labrador Retriever,M,58.4,31.6,999,2
+2,Lucy,French Bulldog,F,-28.9,11.5,3,4
+3,Maggie,Boxer,M,59.3,31.3,1,
+4,Gracie,Labrador Retriever,F,59.3,29.1,3,4
+5,Riley,French Bulldog,M,29.3,-12.7,5,6
+6,Gus,Boxer,F,54.7,25.7,6,7
+7,Rosie,French Bulldog,X,30.4,9.7,1,2
+8,Molly,Dachshund,F,18.3,7.6,2,8
+9,Duke,Labrador Retriever,M,-54.1,33,4,5
+10,Moose,Golden Retriever,F,53.5,-23.2,6,7
+1,Pepper,Rottweiler,M,70.8,48.9,7,8
+12,Jack456,Poodle,F,43.1,15.4,9,10
+13,Bailey789,French Bulldog,M,29.2,-12.1,10,11
+14,Beagle_Dog,Beagle,M,33.9,10.4,10,11
+15,Cooper,German Shepherd,M,63,33,11,12
+16,Ruby,German Shepherd,F,58.2,33.2,12,13
+17,Roxy,Mixed Breed,F,38,10.7,13,14
+18,Gracie,Poodle,M,44.8,15.8,14,15
+19,Max,Boxer,F,20.2,2.4,15,16
+20,Luna,Labrador Retriever,X,-20.5,-5.2,16,17

@@ -1,0 +1,19 @@
+{
+  "comment": "Create duplicate IDs by copying values from source rows into target rows to break uniqueness constraint",
+  "mutations": [
+    {
+      "type": "duplicate_id",
+      "target": ["10"],
+      "params": {
+        "source_idx": 5
+      }
+    },
+    {
+      "type": "duplicate_id",
+      "target": ["25"],
+      "params": {
+        "source_idx": 15
+      }
+    }
+  ]
+}

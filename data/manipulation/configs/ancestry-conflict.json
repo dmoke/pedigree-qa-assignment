@@ -1,0 +1,25 @@
+{
+  "comment": "Creates two pedigree cycles: 3↔9 and 50→100→200→50",
+  "mutations": [
+    {
+      "type": "create_cycle",
+      "target": "3",
+      "params": { "target_idx": "9" }
+    },
+    {
+      "type": "create_cycle",
+      "target": "50",
+      "params": { "target_idx": "100" }
+    },
+    {
+      "type": "create_cycle",
+      "target": "100",
+      "params": { "target_idx": "200" }
+    },
+    {
+      "type": "create_cycle",
+      "target": "200",
+      "params": { "target_idx": "50" }
+    }
+  ]
+}

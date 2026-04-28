@@ -1,0 +1,9 @@
+{
+  "comment": "Remove dam reference to simulate incomplete parentage (only sire remains defined)",
+  "mutations": [
+    {
+      "type": "single_parent",
+      "target": ["51", "55"]
+    }
+  ]
+}

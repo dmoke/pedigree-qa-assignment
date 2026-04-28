@@ -1,0 +1,29 @@
+{
+  "comment": "Inject format and data quality violations across measurement, naming, and enum fields",
+  "mutations": [
+    {
+      "type": "invalid_measurement",
+      "target": ["10"],
+      "params": {
+        "field": "height_cm",
+        "value": "-5.5"
+      }
+    },
+    {
+      "type": "invalid_measurement",
+      "target": ["20"],
+      "params": {
+        "field": "weight_kg",
+        "value": "-2.3"
+      }
+    },
+    {
+      "type": "invalid_name",
+      "target": ["30"]
+    },
+    {
+      "type": "invalid_sex",
+      "target": ["40"]
+    }
+  ]
+}

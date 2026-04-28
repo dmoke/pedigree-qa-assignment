@@ -1,0 +1,150 @@
+{
+  "__comment": "Pedigree breed mutation scenario covering 5 rules: pure inheritance, pure×pure consistency, crossbreed creation, cross×cross stability, and fallback mixed cases.",
+
+  "mutations": [
+    {
+      "__comment": "RULE 2: same pure parents -> same pure child",
+      "type": "breed_mismatch",
+      "target": 1,
+      "params": {
+        "forced_breed": "Beagle"
+      }
+    },
+    {
+      "type": "breed_mismatch",
+      "target": 2,
+      "params": {
+        "forced_breed": "Beagle"
+      }
+    },
+    {
+      "type": "rewrite_parent_ref",
+      "target": 10,
+      "params": {
+        "parent_type": "sire",
+        "target_id": 1
+      }
+    },
+    {
+      "type": "rewrite_parent_ref",
+      "target": 10,
+      "params": {
+        "parent_type": "dam",
+        "target_id": 2
+      }
+    },
+
+    {
+      "__comment": "RULE 3: different pure breeds -> crossbreed (alpha x beta style)",
+      "type": "breed_mismatch",
+      "target": 3,
+      "params": {
+        "forced_breed": "Husky"
+      }
+    },
+    {
+      "type": "breed_mismatch",
+      "target": 4,
+      "params": {
+        "forced_breed": "Boxer"
+      }
+    },
+    {
+      "type": "rewrite_parent_ref",
+      "target": 11,
+      "params": {
+        "parent_type": "sire",
+        "target_id": 3
+      }
+    },
+    {
+      "type": "rewrite_parent_ref",
+      "target": 11,
+      "params": {
+        "parent_type": "dam",
+        "target_id": 4
+      }
+    },
+
+    {
+      "__comment": "RULE 4: same cross parents -> same cross child",
+      "type": "breed_mismatch",
+      "target": 5,
+      "params": {
+        "forced_breed": "alpha x beta"
+      }
+    },
+    {
+      "type": "breed_mismatch",
+      "target": 6,
+      "params": {
+        "forced_breed": "beta x alpha"
+      }
+    },
+    {
+      "type": "rewrite_parent_ref",
+      "target": 12,
+      "params": {
+        "parent_type": "sire",
+        "target_id": 5
+      }
+    },
+    {
+      "type": "rewrite_parent_ref",
+      "target": 12,
+      "params": {
+        "parent_type": "dam",
+        "target_id": 6
+      }
+    },
+
+    {
+      "__comment": "RULE 5: invalid/missing parents -> mixed fallback",
+      "type": "breed_mismatch",
+      "target": 7,
+      "params": {
+        "forced_breed": "mixed"
+      }
+    },
+    {
+      "type": "rewrite_parent_ref",
+      "target": 13,
+      "params": {
+        "parent_type": "sire",
+        "target_id": 99999
+      }
+    },
+    {
+      "type": "rewrite_parent_ref",
+      "target": 13,
+      "params": {
+        "parent_type": "dam",
+        "target_id": 7
+      }
+    },
+    {
+      "__comment": "RULE 5b: explicit mixed expectation when BOTH parents are invalid -> fallback should be mixed",
+      "type": "breed_mismatch",
+      "target": 8,
+      "params": {
+        "forced_breed": "mixed"
+      }
+    },
+    {
+      "type": "rewrite_parent_ref",
+      "target": 8,
+      "params": {
+        "parent_type": "sire",
+        "target_id": 99998
+      }
+    },
+    {
+      "type": "rewrite_parent_ref",
+      "target": 8,
+      "params": {
+        "parent_type": "dam",
+        "target_id": 99997
+      }
+    }
+  ]
+}

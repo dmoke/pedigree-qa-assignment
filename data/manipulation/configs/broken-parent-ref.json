@@ -1,0 +1,26 @@
+{
+  "comment": "Break sire/dam references by assigning non-existent parent IDs (99999) to validate broken lineage handling",
+  "mutations": [
+    {
+      "type": "break_parent_ref",
+      "target": ["1"],
+      "params": {
+        "parent_type": "sire"
+      }
+    },
+    {
+      "type": "break_parent_ref",
+      "target": ["3"],
+      "params": {
+        "parent_type": "dam"
+      }
+    },
+    {
+      "type": "break_parent_ref",
+      "target": "4",
+      "params": {
+        "parent_type": "dam"
+      }
+    }
+  ]
+}
